@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+.container{
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+}
+
+@layer components{
+
+    .header{
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+    .header__nav{
+        @apply bg-white w-[18rem] left-[-20rem] top-[4.4rem]  fixed h-[100%] ease-in duration-[300ms] overflow-y-scroll;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+    .header__nav.open{
+        @apply left-0 ease-in duration-[300ms]
+    }
+    .header__nav ul li {
+        @apply hover:bg-primary py-[1rem] hover:text-white
+    }
+    .header__nav ul li.active{
+        @apply bg-primary text-white
+    }
+    .header__nav ul li.active i{
+        @apply bg-[#232323]
+    }
+    .header__nav ul li i{
+        @apply bg-[#232323] p-[.5rem] rounded-full
+    }
+    .header__nav a{
+        @apply  font-[700] ml-[2rem]
+    }
+    
+    .toggle__menu span{
+        content: '';
+        display: block;
+        width:2rem;
+        height:.2rem;
+        padding:.15rem;
+        background-color:black;
+        border-radius: 2.5rem;
+        transition: ease-in-out 300ms;
+    }
+    .toggle__menu span:nth-child(2){
+        margin:.4rem 0;
+    }
+    .toggle__menu.open span:first-child{
+        @apply rotate-[-230deg] w-[1.2rem] translate-y-[.35rem] translate-x-[-.2rem] ease-in duration-[300ms]
+    }
+    .toggle__menu.open span:last-child{
+        @apply rotate-[230deg] w-[1.2rem] translate-y-[-.35rem] translate-x-[-.2rem] ease-in duration-[300ms]
+    }
+    .toggle__menu.open{
+        @apply rotate-[360deg] ease-in duration-[300ms]
+    }
+    .inner__content.open{
+        @apply max-h-[100%] block ease-in duration-[300ms]
+    }
+    .header__nav ul li i.open{
+        @apply rotate-[180deg] ease-in duration-[200ms]
+    }
+    .header__nav ul li i{
+        @apply bg-[#f2f2f2]
+    }
+
+    .submenu li a{
+        @apply font-[500]
+    }
+    .submenu li.open{
+        @apply block
+    }
+}
